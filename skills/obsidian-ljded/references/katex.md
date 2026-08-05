@@ -183,6 +183,7 @@ $$
 - ❌ 花括号不转义（`\{ \}` 才显示 { }）
 - ❌ 表格 `| ... |` 单元格内写裸 `|`（如 `$|x|$`）→ 竖线会被当成表格分隔符；用 `$\vert x \vert$` 或在表格内改用 `\lvert`/`\rvert`
 - ❌ 多字母函数名写斜体（`sin` 应为 `\sin`；`lim` 应为 `\lim`）→ 常见函数都有现成命令：`\sin` `\cos` `\tan` `\ln` `\log` `\lim` `\max` `\min` 等
+- ❌ **用未定义的函数命令**（如 `\arccot`）→ 渲染失败（MathJax 只内置 `\arcsin` `\arccos` `\arctan`，**没有** `\arccot`/`\arcsec`/`\arccsc`）。正确写法：用 `\operatorname{}` 包裹 → `\operatorname{arccot} x`，或改写为 `\cot^{-1}x`。通用规则：**任何非内置的函数名都套 `\operatorname{}`**（如 `\operatorname{sech}`）
 - ❌ 中文直接写在公式里不套 `\text{}` → 渲染异常或乱码；中文必须放 `\text{中文}` 内
 - ❌ 用 TikZ 画纯公式 → 公式走 `$`/`$$`，TikZ 只画图
 
