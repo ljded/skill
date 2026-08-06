@@ -5,9 +5,15 @@
 ## 0. 插件基础
 
 - 插件渲染 ` ```tikz ` 代码块中的 LaTeX/TikZ 内容，可绘制函数图像、几何图、电路图、化学结构式、交换图等。
-- 文档类固定为 `standalone`（自动应用，无需手写 `\documentclass`）。
+- 文档类固定为 `standalone`（自动应用，**无需也不应**手写 `\documentclass`）。
 - **必须**包含 `\begin{document}` 与 `\end{document}`，缺一不可。
 - 需要宏包时，`\usepackage{}` 写在 `\begin{document}` **之前**。
+
+### 默认设置（作者环境无 data.json，即纯默认；陌生库可查 `<vault>/.obsidian/plugins/obsidian-tikzjax/data.json` 确认）
+
+- **Invert dark colors in dark mode：开（默认且唯一设置项）**。暗色主题下深色元素（坐标轴、箭头、黑色线条）自动反色可见。推论：绘图时按正常白底深色写即可，**不要**为暗色主题手动改白色线条——反色机制会处理。
+- **SVG 缓存**：渲染结果缓存在插件数据库（localForage）中，打开页面不重复渲染；修改代码块内容会自动触发重渲。若用户反馈图"没更新/渲染异常"，引导其在插件设置中点 `Clear cached SVGs` 强制全部重渲。
+- 输出经 SVGO 优化为内联 SVG，笔记中无额外文件产生。
 
 ### 支持的宏包（仅限这些）
 

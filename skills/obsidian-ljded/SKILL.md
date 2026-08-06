@@ -1,22 +1,57 @@
 ---
 name: obsidian-ljded
-description: Obsidian 笔记增强工具箱——提供 Spaced Repetition 闪卡生成、KaTeX/LaTeX 数学公式、TikZJax 数学绘图、Mermaid 图表、Callout/脚注/双链/嵌入等高级语法、obsidian-cli 仓库自动化、笔记事实核查七类能力。This skill should be used when 用户要求将 Obsidian/Markdown 笔记转换为闪卡、整理诗歌/古诗词为挖空闪卡、插入 #闪卡 标签，提到单行闪卡(::/:::)、多行闪卡(?/??)、完型填空挖空(==内容==)、spaced repetition；或在 Obsidian 中编写数学公式（$...$、$$...$$、KaTeX、LaTeX、希腊字母、矩阵、分段函数、多行公式）；或绘制函数图像/TikZ 图/电路图/化学结构式/交换图（tikz 代码块、TikZJax 插件）；或编写 Mermaid 流程图/时序图/类图/甘特图/思维导图等图表；或使用 Obsidian 高级语法（Callout 提示块 >[!note]/[!tip]/[!warning]、行内脚注 ^[]、标准脚注 [^]、双链 [[笔记]]、嵌入 ![[...]]、高亮 ==、注释 %%）；或用 obsidian-cli 搜索/创建/移动/删除笔记、定位 vault、批量管理仓库；或修改笔记中的事实性内容（诗句原文、作者年代、公式形式）前需要核实真伪时。
+description: Obsidian 笔记增强工具箱——提供 Spaced Repetition 闪卡生成、笔记复习标记（#复习）、KaTeX/LaTeX 数学公式、TikZJax 数学绘图、Mermaid 图表、Callout/脚注/双链/嵌入等高级语法、obsidian-cli 仓库自动化、笔记事实核查七类能力。This skill should be used when 用户要求将 Obsidian/Markdown 笔记转换为闪卡、整理诗歌/古诗词为挖空闪卡、插入 #闪卡 标签，提到单行闪卡(::/:::)、多行闪卡(?/??)、完型填空挖空(==内容==)、spaced repetition；或要求把笔记加入复习队列、标记 #复习/#review 标签、笔记间隔复习；或在 Obsidian 中编写数学公式（$...$、$$...$$、KaTeX、LaTeX、希腊字母、矩阵、分段函数、多行公式）；或绘制函数图像/TikZ 图/电路图/化学结构式/交换图（tikz 代码块、TikZJax 插件）；或编写 Mermaid 流程图/时序图/类图/甘特图/思维导图等图表；或使用 Obsidian 高级语法（Callout 提示块 >[!note]/[!tip]/[!warning]、行内脚注 ^[]、标准脚注 [^]、双链 [[笔记]]、嵌入 ![[...]]、高亮 ==、注释 %%）；或用 obsidian-cli 搜索/创建/移动/删除笔记、定位 vault、批量管理仓库；或修改笔记中的事实性内容（诗句原文、作者年代、公式形式）前需要核实真伪时。
 agent_created: true
 ---
 
-# Obsidian 笔记增强工具箱（闪卡 + KaTeX + TikZJax + Mermaid + 高级语法 + CLI + 事实核查）
+# Obsidian 笔记增强工具箱（闪卡 + 笔记复习 + KaTeX + TikZJax + Mermaid + 高级语法 + CLI + 事实核查）
 
 ## Overview
 
 本 skill 整合七类 Obsidian 笔记增强能力：
 
 1. **闪卡生成**：将笔记改写为 Spaced Repetition 插件可识别的闪卡（`#闪卡` 标签 + 三种闪卡格式）。
-2. **KaTeX 数学公式**：用 `$...$` / `$$...$$` 编写规范的数学公式（Obsidian 原生 MathJax 渲染）。
-3. **TikZJax 绘图**：在笔记中用 ` ```tikz ` 代码块绘制精确数学图像、电路图、化学式等（依赖 obsidian-tikzjax 插件）。
-4. **Mermaid 图表**：用 Obsidian 原生支持的 ` ```mermaid ` 代码块绘制流程图、时序图等结构化图表。
-5. **高级语法**：使用 Callout 提示块（`> [!tip]`）、脚注（`^[]` / `[^]`）、双链（`[[...]]`）、嵌入（`![[...]]`）等 Obsidian 方言 Markdown。
-6. **obsidian-cli 自动化**：用命令行搜索、创建、移动、删除笔记，批量管理仓库。
-7. **事实核查**：修改笔记中的事实性内容（诗句原文、作者年代、公式形式）前用多引擎搜索核实，查无实据只标注不改动。
+2. **笔记复习标记**：用 `#复习` 标签把整篇笔记加入 Spaced Repetition 的笔记复习队列（与闪卡并列的独立功能）。
+3. **KaTeX 数学公式**：用 `$...$` / `$$...$$` 编写规范的数学公式（Obsidian 原生 MathJax 渲染）。
+4. **TikZJax 绘图**：在笔记中用 ` ```tikz ` 代码块绘制精确数学图像、电路图、化学式等（依赖 obsidian-tikzjax 插件）。
+5. **Mermaid 图表**：用 Obsidian 原生支持的 ` ```mermaid ` 代码块绘制流程图、时序图等结构化图表。
+6. **高级语法**：使用 Callout 提示块（`> [!tip]`）、脚注（`^[]` / `[^]`）、双链（`[[...]]`）、嵌入（`![[...]]`）等 Obsidian 方言 Markdown。
+7. **obsidian-cli 自动化 + 事实核查**：用命令行搜索、创建、移动、删除笔记；修改事实性内容前用多引擎搜索核实。
+
+## 插件配置（参考默认值 + 实时查询）
+
+下表是**技能作者环境的实测值**（官方默认配置 + 自定义中文标签 `#闪卡`/`#复习`）。**处理陌生 vault 时不要假设标签相同**——先按下法查询实际配置，查不到再回退到下表参考值：
+
+**配置查询方法（生成闪卡/打复习标签前执行）：**
+
+1. 定位 vault：用 `obsidian-cli print-default --path-only`，或读 Obsidian 配置（Windows: `%APPDATA%\obsidian\obsidian.json`；macOS: `~/Library/Application Support/obsidian/obsidian.json`），或直接询问用户。
+2. 读取 `<vault>/.obsidian/plugins/obsidian-spaced-repetition/data.json` 的 `settings` 字段，重点确认：`flashcardTags`（闪卡标签）、`tagsToReview`（笔记复习标签）、四个分隔符、`convert*ToClozes` 开关、`clozePatterns`（决定完型语法）。
+3. `data.json` 不存在或字段缺失 → 插件按官方默认运行，回退使用下表参考值（标签改用官方默认 `#flashcards`/`#review`，除非用户另行指定）。
+
+### Spaced Repetition 参考值（作者环境 data.json 实测）
+
+| 配置项 | 实际值 | 含义 |
+|--------|--------|------|
+| `flashcardTags` | `#flashcards`、`#闪卡` | 官方默认仅 `#flashcards`，`#闪卡` 为作者自定义；多级标签（`#闪卡/编程/Python`）自动生成分层牌组 |
+| `tagsToReview` | `#review`、`#复习` | 官方默认仅 `#review`，`#复习` 为作者自定义；打上后整篇笔记进入笔记复习队列 |
+| `singleLineCardSeparator` / Reversed | `::` / `:::` | 单行单向/双向闪卡分隔符 |
+| `multilineCardSeparator` / Reversed | `?` / `??` | 多行单向/双向闪卡分隔符 |
+| `multilineCardEndMarker` | 空 | **未设结束标志**——空行即闪卡结束，故表格不能整体作为多行卡答案（详见 syntax-rules.md 第 4 节） |
+| `convertHighlightsToClozes` | 开 | `==高亮==` 自动生成完型填空 |
+| `convertBoldTextToClozes` / `convertCurlyBracketsToClozes` | 关 | `**加粗**` 与 `{{花括号}}` **不会**生成挖空，勿用 |
+| `clozePatterns` | `==[123;;]answer[;;hint]==` | 序号（`1;;`）、状态码（`as;;`/`h`）、提示（`;;提示`）的权威语法 |
+| `burySiblingCards` | 开 | 同一闪卡文本生成的兄弟卡（`:::`、多空挖空、`as`/`sa` 互问）每天最多复习一张，属正常现象 |
+| `convertFoldersToDecks` | 关 | 文件夹不生成牌组，牌组只由标签决定 |
+| `algorithm` | SM-2-OSR（baseEase 250，easyBonus 1.3） | 默认算法 |
+| `dataStore` | NOTES | 排期信息以 `<!--SR:...-->` 注释形式写在笔记文件内 |
+
+### obsidian-tikzjax 参考值（作者环境纯默认，无 data.json）
+
+- 唯一设置项 `Invert dark colors in dark mode` 默认**开启**：暗色主题下深色线条（坐标轴、箭头）自动反色可见，绘图时**用正常深色即可，无需为暗色主题做适配**。
+- 渲染结果为 SVG 并缓存（localForage）：修改代码块后自动重新渲染；若渲染异常/陈旧，让用户在插件设置中点 `Clear cached SVGs` 强制重渲。
+- 文档类固定 `standalone`，无需也不应写 `\documentclass`。
+
+
 
 ## 功能路由
 
@@ -25,6 +60,7 @@ agent_created: true
 | 用户意图 | 工作流 | 必读参考 |
 |---------|--------|---------|
 | 笔记转闪卡、诗歌挖空、插入 #闪卡 | 闪卡生成工作流 | `references/syntax-rules.md`（必查）、`references/poetry.md`（诗歌时） |
+| 整篇笔记加入间隔复习、标记 #复习 | 笔记复习工作流 | 下方"笔记复习工作流"一节 |
 | 编写/修正数学公式（希腊字母、分式、矩阵、分段函数、多行对齐） | KaTeX 公式工作流 | `references/katex.md` |
 | 画函数图像、几何图、电路、化学式、交换图 | TikZJax 绘图工作流 | `references/tikzjax.md` |
 | 画流程图、时序图、类图、ER 图、甘特图、思维导图 | Mermaid 绘图工作流 | `references/mermaid.md` |
@@ -49,7 +85,7 @@ agent_created: true
 ## 闪卡生成工作流
 
 1. **读取内容**：读取用户指定的笔记文件，或直接处理用户粘贴的文本。
-2. **插入标签**：在文档顶部插入 `#闪卡` 标签。若用户给出分类（如"编程/Python"），使用多级标签 `#闪卡/编程/Python`；未给出时根据笔记内容推断合适的子分类。若文档有 YAML frontmatter，标签插在 frontmatter 之后、正文之前。
+2. **插入标签**：按"配置查询方法"确认目标库的 `flashcardTags` 后，在文档顶部插入对应闪卡标签（有 `#闪卡` 优先用 `#闪卡`，否则用查询到的标签或官方默认 `#flashcards`）。若用户给出分类（如"编程/Python"），使用多级标签 `#闪卡/编程/Python`——多级标签自动生成分层牌组；未给出时根据笔记内容推断合适的子分类。若文档有 YAML frontmatter，标签插在 frontmatter 之后、正文之前。
 3. **识别重要信息**：找出值得记忆的内容——定义、概念、术语、关键事实、易混点、诗句等，为每条内容选择最合适的闪卡类型。
 4. **生成闪卡**：严格按 `references/syntax-rules.md` 中的语法细则改写。诗歌内容必须按 `references/poetry.md` 的专项规范处理。**能用完型填空 (`==...==`) 的场景优先用完型**（见 `references/syntax-rules.md` 第 5 节选型规则）。
 5. **拆分复查**：扫描所有生成的单行闪卡（`::`/`:::`），若某张卡的答案含多个独立事实，继续拆分为多张卡，或改为完型填空。确认每张卡只考一个知识点后再进入下一步。
@@ -80,6 +116,15 @@ agent_created: true
 | **多属性人物信息** | `==1;;` 同序号组，一张卡同考 | `孟子，名==1;;轲==，字==1;;子舆==，战国==1;;邹国==人。` |
 
 核心原则：**能用完型的用完型，必须用 `::` 的才保留 `::`**。详细选型规则见 `references/syntax-rules.md` 第 5 节。
+
+## 笔记复习工作流（#复习）
+
+笔记复习（Note Review）是 Spaced Repetition 插件与闪卡**并列的独立功能**：闪卡考"点"，笔记复习管"面"（整篇笔记定期重读）。官方默认复习标签为 `#review`（作者环境另加了 `#复习`）——**先按"配置查询方法"确认目标库 `tagsToReview` 的实际值**，有中文标签优先用中文标签。
+
+1. **打标签**：按"配置查询方法"确认目标库 `tagsToReview` 后，在笔记顶部（frontmatter 之后）插入查询到的复习标签（如 `#复习`），支持多级分类 `#复习/数学`（自动生成分层复习牌组）。**笔记复习与闪卡互不依赖**：含闪卡的笔记不必打复习标签，打了复习标签的笔记也不必有闪卡；两者可同时存在。
+2. **生效机制**：标签打上后笔记出现在右侧"笔记复习队列"的 New 中；用户复习时在文件菜单（三点）或复习队列右键选择 `Easy / Good / Hard`，插件按 SM-2-OSR 排期并把排期信息写回笔记文件（`dataStore: NOTES`）。
+3. **注意**：不要手工增删笔记的排期注释；`noteFoldersToIgnore` 已排除 `*.excalidraw.md`，无需处理。
+
 
 ## KaTeX 公式工作流
 
@@ -131,7 +176,8 @@ agent_created: true
 - **一个知识点一张卡**：单张闪卡只聚焦一个可独立提问的知识点。若答案含多个独立事实（如人物的字、朝代、称号），必须拆为多张卡或用完型填空。
 - **列表类知识直接问答**："包括哪些/是什么"类列表知识用 `::` 直接问答（如 `前四史:::...`），禁止做成多点挖空逐项遮（避免"多问少"——4 项列表生成 4 张卡、每张只考 1 项还互相剧透）。
 - **题目必须完整**：`::` 的问题侧不能只写裸人名/书名，必须让复习者明确知道要答什么。反面：`萧何::典故"成也萧何，败也萧何"`（看到"萧何"不知答朝代还是典故）；正面：`与萧何相关的典故::"成也萧何，败也萧何"`。人物类按"姓名/字号/朝代/称号/作品/评价"拆卡时，问题侧写明属性（如`司马迁的字与朝代::字子长，西汉人`）。
-- **不动学习记录**：闪卡下方的 `<!--SR:!2026-07-29,0,230-->` 注释是 Spaced Repetition 插件的学习记录，**禁止修改、移动或重排**；删除某张闪卡（含改写题目导致旧卡失效）时，必须将其对应的学习记录一并删除。
+- **不动学习记录**：闪卡下方的 `<!--SR:!2026-07-29,0,230-->` 注释是 Spaced Repetition 插件的学习记录，**禁止修改、移动或重排**；删除某张闪卡（含改写题目导致旧卡失效）时，必须将其对应的学习记录一并删除。也可以用 HTML 注释整段包裹闪卡（`<!-- 闪卡文本 <!--SR:...--> -->`）来临时停用某张卡。
+- **兄弟卡次日掩埋已开启**：`:::`、多空挖空、`as`/`sa` 互问等同源卡每天最多出现一张，这是插件正常调度行为，不要为了避免它而拆散本应同组的挖空。
 - **名句默写用完型填空**：名句/名诗默写类内容统一用完型填空（`as`/`sa` 交替），出处行格式与诗歌相同（`-==aa;;《出处》==`）。
 - 完型填空使用状态码时，同一组内**每个挖空的状态码个数必须一致**，状态码个数 = 该组生成的闪卡数。
 - 诗歌出处行统一使用全 `a` 状态码，**个数与该诗歌块生成的闪卡数一致**（如正文用 `as` 两个码则出处用 `aa`；整组 4 张卡则用 `aaaa`），格式为 `-==aa;;《出处》==`。
@@ -142,7 +188,8 @@ agent_created: true
 
 ### 绘图
 - **不破坏已有图代码**：用户笔记中已有的 tikz/mermaid 代码块，除非用户要求或代码确有错误，否则原样保留。
-- **tikz 代码块必须完整**：`\begin{document}`/`\end{document}` 缺一不可；宏包声明必须在其之前。
+- **tikz 代码块必须完整**：`\begin{document}`/`\end{document}` 缺一不可；宏包声明必须在其之前；不写 `\documentclass`（插件固定 standalone）。
+- **暗色主题无需手动适配**：插件默认自动反色，线条按正常深色写；用户反馈图未更新/异常时，引导其在插件设置点 `Clear cached SVGs`。
 - **先能渲染，再求美观**：先给最小可工作的图，确认结构正确后再加标注、颜色、网格。
 - 数学公式内容优先用 Obsidian 原生 `$$...$$`（MathJax），不要用 TikZ 画纯公式——TikZ 只用于"图"；公式语法规范见 `references/katex.md`。
 
